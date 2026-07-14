@@ -9,6 +9,7 @@
 5. [Adding SVGs](#adding-svgs)
 6. [Developer workflow](#developer-workflow)
 6. [Building with AI](#building-with-ai)
+7. [Git daily workflow](#git-daily-workflow)
 
 ## Overview
 
@@ -119,3 +120,35 @@ Styles should be class-based, most styling should be written manually (not ai-ge
 When prompting AI to create new module php/json code, paste these directions with your prompt:
 
 >Ensure all PHP declarations and logic are separate from the HTML markup. Precompute all variables and data before rendering the markup. Keep conditional logic to an absolute minimum; inline conditionals are allowed only for very small, unavoidable cases (like toggling a single attribute or class). Write the code as concisely as possible. Do not write HTML inside PHP echos. Do not refactor the current DOM structure; honour it. Do not apply any styling. When using a link field, always use the ACF simple link field type and label it Button in the CMS. For repeater items, that show multiple fields per item, show these fields as columns in the CMS.When generating HTML/JS, use semantic classes for elements that will be targeted by JavaScript. Do not use data-* attributes for JS hooks. 
+
+## Git daily workflow
+
+At the start of every session
+
+```bash
+git pull
+```
+
+To check changes you've made in the session
+
+```bash
+git status (or)
+git diff
+```
+
+To stage, commit and push changes
+
+```bash
+git add .
+git commit -m "Describe change"
+git push
+Conflicts
+```
+
+If git finds a conflict, resolve it in VS Code, then
+
+```bash
+git add .
+git commit -m "Resolve conflict"
+git push
+```
