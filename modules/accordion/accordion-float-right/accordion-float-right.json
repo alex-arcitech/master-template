@@ -1,0 +1,90 @@
+{
+  "key": "group_accordion_float_right",
+  "title": "Accordion Float Right",
+  "fields": [
+    {
+      "key": "field_accordion_mode",
+      "label": "Mode",
+      "name": "mode",
+      "type": "button_group",
+      "choices": {
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "default_value": "light",
+      "layout": "horizontal",
+      "return_format": "value"
+    },
+    {
+      "key": "field_accordion_section_title",
+      "label": "Section Title",
+      "name": "section_title",
+      "type": "text",
+      "required": 1
+    },
+    {
+      "key": "field_accordion_section_text",
+      "label": "Section Text",
+      "name": "section_text",
+      "type": "textarea",
+      "rows": 4
+    },
+    {
+      "key": "field_accordion_button",
+      "label": "Button",
+      "name": "button",
+      "type": "link",
+      "return_format": "array"
+    },
+    {
+      "key": "field_accordion_items",
+      "label": "Accordion Items",
+      "name": "accordion_items",
+      "type": "repeater",
+      "required": 1,
+      "min": 4,
+      "max": 8,
+      "layout": "table",
+      "button_label": "Add Item",
+      "sub_fields": [
+        {
+          "key": "field_accordion_item_title",
+          "label": "Title",
+          "name": "title",
+          "type": "text",
+          "required": 1,
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_accordion_item_text",
+          "label": "Text",
+          "name": "text",
+          "type": "textarea",
+          "required": 1,
+          "rows": 3,
+          "wrapper": {
+            "width": "50"
+          }
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf\/accordion-float-right"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": 1
+}

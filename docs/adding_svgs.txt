@@ -1,0 +1,18 @@
+$svg_name = get_stylesheet_directory() . '/assets/svgs/svg_name.svg';
+
+                        <div class=" w-2 text-white">
+                            <?php include $arrow_svg; ?>
+                        </div>
+
+
+
+4 heading sizes,
+3 text sizes,
+2 fonts,
+5 colours
+
+
+
+Ensure all PHP declarations and logic are separate from the HTML markup. Precompute all variables and data before rendering the markup. Keep conditional logic to an absolute minimum; inline conditionals are allowed only for very small, unavoidable cases (like toggling a single attribute or class). Write the code as concisely as possible. Do not write HTML inside PHP echos. Do not refactor the current DOM structure; honour it. Do not apply any styling. When using a link field, always use the ACF simple link field type and label it Button in the CMS. For repeater items, that show multiple fields per item, show these fields as columns in the CMS.When generating HTML/JS, use semantic classes for elements that will be targeted by JavaScript. 
+Do NOT use data-* attributes for JS hooks. 
+

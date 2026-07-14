@@ -1,0 +1,27 @@
+{
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "variable.other.php",
+          "punctuation.definition.variable.php"
+        ],
+        "settings": {
+          "foreground": "#D19A66"
+        }
+      }
+    ]
+  },
+  "files.associations": {
+    "**/css/output.css": "tailwindcss",
+    "**/css/input.css": "tailwindcss"
+  },
+  "css.lint.propertyIgnoredDueToDisplay": "ignore",
+  "css.lint.unknownAtRules": "ignore",
+  "tailwindCSS.experimental.configFile": {
+    "tailwind.config.js": "**"
+  },
+  "tailwindCSS.includeLanguages": {
+    "postcss": "css"
+  }
+}

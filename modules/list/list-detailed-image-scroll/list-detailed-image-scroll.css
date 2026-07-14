@@ -1,0 +1,116 @@
+.list-detailed-image-scroll-module .iis-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 6rem;
+    align-items: start;
+}
+
+.list-detailed-image-scroll-module .iis-media-col {
+    position: sticky;
+    top: 7rem;
+    height: calc(100vh - 7rem);
+    display: flex;
+    align-items: center;
+}
+
+.list-detailed-image-scroll-module .iis-media-sticky {
+    position: relative;
+    width: 100%;
+}
+
+.list-detailed-image-scroll-module .iis-media-viewport {
+    position: relative;
+    width: 92%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.list-detailed-image-scroll-module .iis-media-track {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+    transition: none;
+    will-change: transform;
+}
+
+.list-detailed-image-scroll-module .iis-media-slide {
+    flex: 0 0 100%;
+    height: 100%;
+}
+
+.list-detailed-image-scroll-module .iis-media-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.list-detailed-image-scroll-module .iis-text-item {
+    min-height: calc(100vh - 7rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.list-detailed-image-scroll-module .iis-mobile-layout {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .list-detailed-image-scroll-module .iis-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .list-detailed-image-scroll-module .iis-media-col {
+        position: relative;
+        top: 0;
+        height: auto;
+        display: block;
+    }
+
+    .list-detailed-image-scroll-module .iis-text-item {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .list-detailed-image-scroll-module .iis-layout {
+        display: none;
+    }
+
+    .list-detailed-image-scroll-module .iis-mobile-layout {
+        display: block;
+    }
+
+    .list-detailed-image-scroll-module .iis-mobile-item {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .list-detailed-image-scroll-module .iis-mobile-item+.iis-mobile-item {
+        margin-top: 3rem;
+    }
+
+    .list-detailed-image-scroll-module .iis-mobile-image {
+        width: 100%;
+        max-width: 500px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 20px;
+    }
+
+    .list-detailed-image-scroll-module .iis-mobile-text {
+        width: 100%;
+        margin-top: 0.75rem;
+        margin-right: auto;
+        margin-bottom: 2.25rem;
+        margin-left: auto;
+        text-align: left;
+    }
+}

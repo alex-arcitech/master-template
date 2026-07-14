@@ -1,0 +1,102 @@
+{
+    "key": "group_comparison_table",
+    "title": "Comparison Table",
+    "fields": [
+        {
+            "key": "field_comparison_table_option_1_title",
+            "label": "Option 1 Title",
+            "name": "option_1_title",
+            "type": "text",
+            "required": 1,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_comparison_table_option_2_title",
+            "label": "Option 2 Title",
+            "name": "option_2_title",
+            "type": "text",
+            "required": 1,
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_comparison_table_rows",
+            "label": "Rows",
+            "name": "rows",
+            "type": "repeater",
+            "required": 0,
+            "layout": "table",
+            "button_label": "Add Row",
+            "sub_fields": [
+                {
+                    "key": "field_comparison_table_row_comparing",
+                    "label": "Comparing",
+                    "name": "comparing",
+                    "type": "text",
+                    "required": 1
+                },
+                {
+                    "key": "field_comparison_table_row_option_1_impact",
+                    "label": "Option 1 Impact",
+                    "name": "option_1_impact",
+                    "type": "button_group",
+                    "choices": {
+                        "positive": "Positive",
+                        "negative": "Negative"
+                    },
+                    "default_value": "positive",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_comparison_table_row_option_1_value",
+                    "label": "Option 1",
+                    "name": "option_1_value",
+                    "type": "text",
+                    "required": 1
+                },
+                {
+                    "key": "field_comparison_table_row_option_2_impact",
+                    "label": "Option 2 Impact",
+                    "name": "option_2_impact",
+                    "type": "button_group",
+                    "choices": {
+                        "positive": "Positive",
+                        "negative": "Negative"
+                    },
+                    "default_value": "positive",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_comparison_table_row_option_2_value",
+                    "label": "Option 2",
+                    "name": "option_2_value",
+                    "type": "text",
+                    "required": 1
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/comparison-table"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

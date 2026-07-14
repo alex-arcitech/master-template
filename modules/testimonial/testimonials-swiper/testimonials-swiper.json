@@ -1,0 +1,75 @@
+{
+    "key": "group_testimonials_swiper",
+    "title": "Testimonials Swiper",
+    "fields": [
+        {
+            "key": "field_testimonials_swiper_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_testimonials_swiper_section_text",
+            "label": "Section Text",
+            "name": "section_text",
+            "type": "textarea",
+            "rows": 4,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_testimonials_swiper_testimonials",
+            "label": "Testimonials",
+            "name": "testimonials",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Testimonial",
+            "sub_fields": [
+                {
+                    "key": "field_testimonials_swiper_testimonial_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 3,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_testimonials_swiper_testimonial_author",
+                    "label": "Author",
+                    "name": "author",
+                    "type": "text"
+                },
+                {
+                    "key": "field_testimonials_swiper_testimonial_button",
+                    "label": "Button",
+                    "name": "button",
+                    "type": "link",
+                    "return_format": "array"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/testimonials-swiper"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

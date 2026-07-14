@@ -1,0 +1,96 @@
+{
+    "key": "group_testimonials_grid",
+    "title": "Testimonials Grid",
+    "fields": [
+        {
+            "key": "field_testimonials_grid_show_title",
+            "label": "Show Title",
+            "name": "show_title",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_testimonials_grid_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_testimonials_grid_section_text",
+            "label": "Section Text",
+            "name": "section_text",
+            "type": "textarea",
+            "rows": 4,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_testimonials_grid_google_profile_link",
+            "label": "Google Profile Link",
+            "name": "google_profile_link",
+            "type": "url",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_testimonials_grid_testimonials",
+            "label": "Testimonials",
+            "name": "testimonials",
+            "type": "repeater",
+            "layout": "table",
+            "max": 5,
+            "button_label": "Add Testimonial",
+            "sub_fields": [
+                {
+                    "key": "field_testimonials_grid_testimonial_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 3,
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_testimonials_grid_testimonial_author",
+                    "label": "Author",
+                    "name": "author",
+                    "type": "text"
+                },
+                {
+                    "key": "field_testimonials_grid_testimonial_button",
+                    "label": "Button",
+                    "name": "button",
+                    "type": "link",
+                    "return_format": "array"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/testimonials-grid"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

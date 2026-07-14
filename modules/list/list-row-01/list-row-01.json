@@ -1,0 +1,59 @@
+{
+    "key": "group_list_row_01",
+    "title": "List Row (01)",
+    "fields": [
+        {
+            "key": "field_list_row_01_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_list_row_01_items",
+            "label": "Items",
+            "name": "items",
+            "type": "repeater",
+            "layout": "table",
+            "min": 3,
+            "max": 3,
+            "button_label": "Add Item",
+            "sub_fields": [
+                {
+                    "key": "field_list_row_01_item_title",
+                    "label": "Item Title",
+                    "name": "item_title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_list_row_01_item_description",
+                    "label": "Item Description",
+                    "name": "item_description",
+                    "type": "textarea",
+                    "rows": 3,
+                    "new_lines": "br"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/list-row-01"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

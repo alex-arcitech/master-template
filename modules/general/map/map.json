@@ -1,0 +1,44 @@
+{
+    "key": "group_map",
+    "title": "Map",
+    "fields": [
+        {
+            "key": "field_map_latitude",
+            "label": "Latitude",
+            "name": "latitude",
+            "type": "number",
+            "step": "0.000001",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_map_longitude",
+            "label": "Longitude",
+            "name": "longitude",
+            "type": "number",
+            "step": "0.000001",
+            "wrapper": {
+                "width": "50"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/map"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

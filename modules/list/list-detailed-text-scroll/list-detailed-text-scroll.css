@@ -1,0 +1,16 @@
+.list-detailed-text-scroll-module .list-detailed-text-scroll-card {
+    background-color: #ffffff;
+    color: inherit;
+    opacity: 0.45;
+    transition: opacity 280ms ease, background-color 280ms ease, color 280ms ease;
+}
+
+.list-detailed-text-scroll-module .list-detailed-text-scroll-card.is-focused {
+    background-color: #ffffff;
+    color: inherit;
+    opacity: 1;
+}
+
+.list-detailed-text-scroll-module .list-detailed-text-scroll-card.is-focused p {
+    color: inherit;
+}

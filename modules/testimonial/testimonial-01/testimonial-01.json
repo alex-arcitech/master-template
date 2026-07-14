@@ -1,0 +1,73 @@
+{
+    "key": "group_testimonial_single",
+    "title": "Testimonial (01)",
+    "fields": [
+        {
+            "key": "field_testimonial_single_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_testimonial_single_section_button",
+            "label": "Button",
+            "name": "section_button",
+            "type": "link",
+            "return_format": "array",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_testimonial_single_testimonial_text",
+            "label": "Testimonial Text",
+            "name": "testimonial_text",
+            "type": "textarea",
+            "rows": 5,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_testimonial_single_testimonial_author",
+            "label": "Testimonial Author",
+            "name": "testimonial_author",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_testimonial_single_testimonial_button",
+            "label": "Button",
+            "name": "testimonial_button",
+            "type": "link",
+            "return_format": "array",
+            "wrapper": {
+                "width": "100"
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/testimonial-01"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

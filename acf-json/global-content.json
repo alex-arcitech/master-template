@@ -1,0 +1,139 @@
+{
+    "key": "group_global_content",
+    "title": "Global Content",
+    "fields": [
+        {
+            "key": "field_header_logo",
+            "label": "Header Logo",
+            "name": "header_logo",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_footer_logo",
+            "label": "Footer Logo",
+            "name": "footer_logo",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_mobile_nav_mode",
+            "label": "Mobile Nav Mode",
+            "name": "mobile_nav_mode",
+            "type": "button_group",
+            "choices": {
+                "light": "Light",
+                "dark": "Dark"
+            },
+            "default_value": "light",
+            "layout": "horizontal",
+            "return_format": "value",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_contact_email",
+            "label": "Email",
+            "name": "email",
+            "type": "email",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_contact_phone",
+            "label": "Phone",
+            "name": "phone",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_contact_address",
+            "label": "Address",
+            "name": "address",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_contact_maps_url",
+            "label": "Maps URL",
+            "name": "maps_url",
+            "type": "url",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_footer_columns",
+            "label": "Footer Columns",
+            "name": "footer_columns",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Add Column",
+            "wrapper": {
+                "width": "100"
+            },
+            "sub_fields": [
+                {
+                    "key": "field_footer_col_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_footer_col_links",
+                    "label": "Links",
+                    "name": "links",
+                    "type": "repeater",
+                    "layout": "table",
+                    "button_label": "Add Link",
+                    "sub_fields": [
+                        {
+                            "key": "field_footer_col_link_button",
+                            "label": "Button",
+                            "name": "button",
+                            "type": "link",
+                            "return_format": "array"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "global-content"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Global content used across header and footer.",
+    "show_in_rest": 1,
+    "modified": 1772668800
+}

@@ -1,0 +1,84 @@
+{
+    "key": "group_list_detailed_text_scroll",
+    "title": "List Detailed Text Scroll",
+    "fields": [
+        {
+            "key": "field_snippet_scroll_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_snippet_scroll_section_text",
+            "label": "Section Text",
+            "name": "section_text",
+            "type": "textarea",
+            "rows": 4,
+            "new_lines": "br",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_snippet_scroll_button",
+            "label": "Button",
+            "name": "button",
+            "type": "link",
+            "return_format": "array",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_snippet_scroll_items",
+            "label": "Items",
+            "name": "items",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Add Item",
+            "sub_fields": [
+                {
+                    "key": "field_snippet_scroll_item_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_snippet_scroll_item_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 3,
+                    "new_lines": "br",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/list-detailed-text-scroll"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

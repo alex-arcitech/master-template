@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  :root {
+    --site-header-height: 5rem;
+  }
+
+  html,
+  body {
+    @apply m-0 p-0 max-w-full scroll-smooth font-body font-extralight bg-theme;
+  }
+
+  main {
+    @apply bg-white mt-20;
+  }
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading capitalize font-normal;
+  }
+
+  p {
+    @apply text-base max-w-[32rem];
+  }
+
+  footer p,
+  footer,
+  footer a {
+    @apply text-base text-white;
+  }
+
+  footer h6 {
+    @apply mb-4;
+  }
+
+  h1 {
+    @apply text-3xl md:text-6xl md:leading-[3rem];
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl lg:leading-[3rem];
+  }
+
+  h3 {
+    @apply text-xl md:leading-[3rem];
+  }
+
+  h6 {
+    @apply text-base;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label {
+    all: unset;
+    @apply inline-block box-border cursor-pointer;
+    font: inherit;
+    color: inherit;
+  }
+}
+
+@layer components {
+
+  .section {
+    @apply w-full py-32 mx-auto;
+  }
+
+  .container {
+    @apply mx-auto px-4 max-w-7xl;
+  }
+
+  .container.content {
+    @apply sm:px-8 md:px-12 max-w-lg md:max-w-7xl;
+  }
+}
+
+
+@layer components {
+  header {
+    @apply bg-theme;
+  }
+
+  nav.desktop {
+    @apply text-white;
+
+
+    >ul {
+      @apply h-full flex gap-7;
+    }
+
+    .sub-menu {
+      @apply invisible pointer-events-none opacity-0 rounded-b-sm h-auto flex flex-col absolute top-[calc(100%-4px)] left-0 bg-white w-48 shadow-sm border-t-4 border-solid border-accent px-4 text-themedark duration-300;
+    }
+
+    >ul li {
+      @apply h-full flex items-center;
+    }
+
+    .menu-item-has-children {
+      @apply relative;
+    }
+
+    .menu-item-has-children:hover .sub-menu {
+      @apply visible opacity-100 pointer-events-auto;
+    }
+
+    .sub-menu li {
+      @apply border-b border-solid border-grey border-opacity-20 w-full text-left py-3 text-base;
+    }
+
+    .sub-menu li:last-of-type {
+      @apply border-b-0;
+    }
+  }
+
+
+  nav.mobile {
+    li {
+      @apply text-xl font-heading text-theme py-6 px-2 border-b border-solid border-grey;
+    }
+
+    li a {
+      @apply pl-3;
+    }
+
+    .sub-menu li {
+      @apply text-lg font-body py-3 px-4 border-none;
+    }
+
+    .current-menu-parent a,
+    .current-menu-item a {
+      @apply relative;
+    }
+
+    .current-menu-parent a::before,
+    .current-menu-item a::before {
+      @apply content-[''] block w-1 h-1 bg-grey absolute left-0 top-1/2 -translate-y-1/2 rounded-sm;
+    }
+
+    .sub-menu li a::before {
+      content: unset;
+    }
+
+  }
+
+  .dark {
+    nav.mobile li {
+      @apply text-white border-white border-opacity-30;
+    }
+
+    nav.mobile .current-menu-parent a::before,
+    nav.mobile .current-menu-item a::before {
+      @apply bg-accent;
+    }
+  }
+
+  .fluentform {
+    @apply w-full max-w-xl;
+
+    form,
+    fieldset {
+      @apply w-full max-w-xl;
+    }
+
+    label {
+      @apply hidden;
+    }
+
+    .ff_columns_total_2 {
+      @apply flex flex-col md:flex-row gap-2;
+    }
+
+    input,
+    textarea {
+      @apply w-full py-3 px-2 border border-solid border-grey rounded-md mb-2;
+
+    }
+
+    .ff_submit_btn_wrapper {
+      @apply flex justify-center mt-6;
+    }
+
+  }
+  .wysiwyg-block__content h1 {
+    @apply mt-0 mb-6 text-4xl leading-tight font-semibold;
+  }
+
+  .wysiwyg-block__content h2 {
+    @apply mt-16 mb-4 text-3xl leading-tight font-semibold;
+  }
+
+  .wysiwyg-block__content h2.seo-page-first-h2 {
+    @apply mt-0;
+  }
+
+  .wysiwyg-block__content h3 {
+    @apply mt-14 mb-3 text-xl leading-snug font-semibold;
+  }
+
+  .wysiwyg-block__content p {
+    @apply mb-5 leading-7;
+  }
+
+  .wysiwyg-block__content ul {
+    @apply mb-5 ml-6 list-disc space-y-2;
+  }
+
+  .wysiwyg-block__content ol {
+    @apply mb-5 ml-6 list-decimal space-y-2;
+  }
+
+  .wysiwyg-block__content blockquote {
+    @apply my-8 border-l-4 pl-4 italic text-zinc-600;
+  }
+}
+
+
+
+@layer components {
+
+  .btn {
+    @apply py-2 font-light w-32 flex justify-center;
+  }
+
+  .theme.btn {
+    @apply bg-accent text-white hover:bg-accent/90 border border-solid border-accent;
+  }
+
+  .secondary.btn {
+    @apply border border-solid border-white text-white hover:opacity-70;
+  }
+
+  .third.btn {
+    @apply border border-solid border-white bg-white text-themedark hover:opacity-90;
+  }
+
+
+}

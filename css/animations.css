@@ -1,0 +1,246 @@
+/* ==========================================================================
+   MENU BUTTON
+   ========================================================================== */
+
+.menu-button {
+    --mb-bar-width: 30px;
+    --mb-bar-height: 2px;
+    --mb-bar-spacing: 7px;
+    --mb-animation-function: ease;
+    --mb-animation-duration: 0.25s;
+    --mb-animation-delay: 0s;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75em;
+    padding: 0;
+    margin: 0;
+
+    font-size: inherit;
+    color: inherit;
+
+    border: unset;
+    background: none;
+    cursor: pointer;
+}
+
+.menu-button .bars {
+    position: relative;
+    display: block;
+    width: var(--mb-bar-width);
+    height: calc(var(--mb-bar-height) * 3 + var(--mb-bar-spacing) * 2);
+}
+
+.menu-button .bar {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: var(--mb-bar-height);
+    border-radius: calc(var(--mb-bar-height) / 2);
+    background: white;
+    color: inherit;
+    opacity: 1;
+    transition: none var(--mb-animation-duration) var(--mb-animation-function) var(--mb-animation-delay);
+}
+
+.menu-button .bar--top {
+    bottom: calc(50% + var(--mb-bar-spacing) + var(--mb-bar-height) / 2);
+    transition-property: bottom, transform;
+}
+
+.menu-button .bar--middle {
+    top: calc(50% - var(--mb-bar-height) / 2);
+    transition-property: opacity;
+}
+
+.menu-button .bar--bottom {
+    top: calc(50% + var(--mb-bar-spacing) + var(--mb-bar-height) / 2);
+    transition-property: top, transform;
+}
+
+.menu-button .is-cross .bar--top {
+    bottom: calc(50% - var(--mb-bar-height) / 2);
+    transform: rotate(45deg);
+}
+
+.menu-button .is-cross .bar--middle {
+    opacity: 0;
+}
+
+.menu-button .is-cross .bar--bottom {
+    top: calc(50% - var(--mb-bar-height) / 2);
+    transform: rotate(-45deg);
+}
+
+/* 
+   COMPRESS
+*/
+
+.menu-button.fx-compress .bar--top {
+    transition-property: bottom, margin, transform;
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration)),
+        var(--mb-animation-delay), var(--mb-animation-delay);
+}
+
+.menu-button.fx-compress .bar--middle {
+    transition-property: top, opacity;
+    transition-duration: var(--mb-animation-duration), 0s;
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 1.3),
+        calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 1.3);
+}
+
+.menu-button.fx-compress .bar--bottom {
+    transition-delay: var(--mb-animation-delay);
+}
+
+.menu-button.fx-compress .is-cross .bar--top {
+    bottom: calc(50% - var(--mb-bar-spacing) - var(--mb-bar-height));
+    margin-bottom: calc(var(--mb-bar-spacing) + var(--mb-bar-height) / 2);
+    transform: rotate(45deg);
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 0.3),
+        calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 1.3),
+        calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 1.3);
+}
+
+.menu-button.fx-compress .is-cross .bar--middle {
+    top: calc(50% + var(--mb-bar-spacing));
+    opacity: 0;
+    transition-duration: var(--mb-animation-duration), 0s;
+    transition-delay: var(--mb-animation-delay),
+        calc(var(--mb-animation-delay) + var(--mb-animation-duration));
+}
+
+.menu-button.fx-compress .is-cross .bar--bottom {
+    top: calc(50% - var(--mb-bar-height) / 2);
+    transform: rotate(-45deg);
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 1.3),
+        calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 1.3);
+}
+
+/* 
+   SPIN
+*/
+
+.menu-button.fx-spin .bar--top {
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration)),
+        var(--mb-animation-delay);
+}
+
+.menu-button.fx-spin .bar--middle {
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration));
+}
+
+.menu-button.fx-spin .bar--bottom {
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration)),
+        var(--mb-animation-delay);
+}
+
+.menu-button.fx-spin .is-cross .bar--top {
+    transform: rotate(135deg);
+    transition-delay: var(--mb-animation-delay),
+        calc(var(--mb-animation-delay) + var(--mb-animation-duration));
+}
+
+.menu-button.fx-spin .is-cross .bar--middle {
+    transition-duration: 0s;
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration));
+}
+
+.menu-button.fx-spin .is-cross .bar--bottom {
+    transform: rotate(225deg);
+    transition-delay: var(--mb-animation-delay),
+        calc(var(--mb-animation-delay) + var(--mb-animation-duration));
+}
+
+/* 
+   SQUEEZE
+*/
+
+.menu-button.fx-squeeze .bar--top {
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 0.4),
+        var(--mb-animation-delay);
+}
+
+.menu-button.fx-squeeze .bar--middle {
+    transition-delay: calc(var(--mb-animation-delay) + 0.1s);
+}
+
+.menu-button.fx-squeeze .bar--bottom {
+    transition-delay: calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 0.4),
+        var(--mb-animation-delay);
+}
+
+.menu-button.fx-squeeze .is-cross .bar--top {
+    transition-delay: var(--mb-animation-delay),
+        calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 0.4);
+}
+
+.menu-button.fx-squeeze .is-cross .bar--middle {
+    transition-delay: var(--mb-animation-delay);
+}
+
+.menu-button.fx-squeeze .is-cross .bar--bottom {
+    transition-delay: var(--mb-animation-delay),
+        calc(var(--mb-animation-delay) + var(--mb-animation-duration) * 0.4);
+}
+
+
+
+
+
+/* ==========================================================================
+   HEADER SHRINK BEHAVIOR
+   ========================================================================== */
+
+
+header .container {
+    height: 6rem;
+}
+
+header.is-compact .container {
+    height: 4rem !important;
+}
+
+
+header .container,
+.header-logo,
+header .btn,
+.nav-right,
+.btn-container {
+    transition: 0.3s ease;
+}
+
+header {
+    transition: 0.1s;
+}
+
+.is-compact .header-logo,
+.is-compact .btn {
+    scale: 0.85;
+}
+
+header.is-compact {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+header.is-compact .btn:first-of-type {
+    margin-right: -10px;
+}
+
+header.is-compact .nav-right {
+    gap: 0;
+}
+
+header.is-compact .btn-container {
+    gap: 0;
+}
+
+nav.desktop ul {
+    transition: 0.3s;
+}
+
+header.is-compact nav.desktop ul {
+    gap: 1rem;
+    margin-right: 1rem;
+}

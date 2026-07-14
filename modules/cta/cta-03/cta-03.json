@@ -1,0 +1,49 @@
+{
+    "key": "group_cta_slim",
+    "title": "CTA (03)",
+    "fields": [
+        {
+            "key": "field_cta_slim_mode",
+            "label": "Mode",
+            "name": "mode",
+            "type": "button_group",
+            "choices": {
+                "light": "Light",
+                "dark": "Dark"
+            },
+            "default_value": "light",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_cta_slim_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "required": 1
+        },
+        {
+            "key": "field_cta_slim_button",
+            "label": "Button",
+            "name": "button",
+            "type": "link",
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/cta-03"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1
+}

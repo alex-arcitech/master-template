@@ -1,0 +1,78 @@
+{
+    "key": "group_list_detailed_image_scroll",
+    "title": "List Detailed Image Scroll",
+    "fields": [
+        {
+            "key": "field_info_image_scroll_sections",
+            "label": "Sections",
+            "name": "sections",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Section",
+            "sub_fields": [
+                {
+                    "key": "field_info_image_scroll_section_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_info_image_scroll_section_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "group",
+                    "layout": "block",
+                    "wrapper": {
+                        "width": "50"
+                    },
+                    "sub_fields": [
+                        {
+                            "key": "field_info_image_scroll_section_title",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "wrapper": {
+                                "width": "100"
+                            }
+                        },
+                        {
+                            "key": "field_info_image_scroll_section_text",
+                            "label": "Text",
+                            "name": "text",
+                            "type": "textarea",
+                            "rows": 4,
+                            "new_lines": "br",
+                            "wrapper": {
+                                "width": "100"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/list-detailed-image-scroll"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+}

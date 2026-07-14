@@ -1,0 +1,111 @@
+{
+    "key": "group_accordion_grid",
+    "title": "Accordion Grid",
+    "fields": [
+        {
+            "key": "field_accordion_grid_show_title",
+            "label": "Show Title",
+            "name": "show_title",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1,
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_faq_1_mode",
+            "label": "Mode",
+            "name": "mode",
+            "type": "button_group",
+            "choices": {
+                "dark": "Dark",
+                "light": "Light"
+            },
+            "default_value": "dark",
+            "layout": "horizontal",
+            "return_format": "value",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_faq_1_style",
+            "label": "Style",
+            "name": "style",
+            "type": "button_group",
+            "choices": {
+                "tile": "Tile",
+                "divider": "Divider"
+            },
+            "default_value": "tile",
+            "layout": "horizontal",
+            "return_format": "value",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_faq_1_section_title",
+            "label": "Section Title",
+            "name": "section_title",
+            "type": "text",
+            "required": 1
+        },
+        {
+            "key": "field_faq_1_section_text",
+            "label": "Section Text",
+            "name": "section_text",
+            "type": "textarea",
+            "rows": 4
+        },
+        {
+            "key": "field_faq_1_items",
+            "label": "FAQ Items",
+            "name": "faq_items",
+            "type": "repeater",
+            "required": 1,
+            "layout": "table",
+            "button_label": "Add Item",
+            "sub_fields": [
+                {
+                    "key": "field_faq_1_item_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_faq_1_item_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "required": 1,
+                    "rows": 3,
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/accordion-grid"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1
+}

@@ -1,0 +1,113 @@
+{
+  "key": "group_list_icons_02",
+  "title": "List Icons (02)",
+  "fields": [
+    {
+      "key": "field_list_icons_02_mode",
+      "label": "Mode",
+      "name": "mode",
+      "type": "button_group",
+      "choices": {
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "default_value": "light",
+      "layout": "horizontal",
+      "return_format": "value",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_list_icons_02_section_title",
+      "label": "Section Title",
+      "name": "section_title",
+      "type": "text",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_list_icons_02_section_text",
+      "label": "Section Text",
+      "name": "section_text",
+      "type": "textarea",
+      "rows": 4,
+      "new_lines": "br",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_list_icons_02_button",
+      "label": "Button",
+      "name": "button",
+      "type": "link",
+      "return_format": "array",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_list_icons_02_items",
+      "label": "Items",
+      "name": "items",
+      "type": "repeater",
+      "layout": "table",
+      "min": 3,
+      "max": 6,
+      "button_label": "Add Item",
+      "sub_fields": [
+        {
+          "key": "field_list_icons_02_item_icon",
+          "label": "Icon",
+          "name": "icon",
+          "type": "image",
+          "return_format": "array",
+          "preview_size": "acf-icon-thumb",
+          "library": "all"
+        },
+        {
+          "key": "field_list_icons_02_item_heading",
+          "label": "Item Heading",
+          "name": "item_heading",
+          "type": "text"
+        },
+        {
+          "key": "field_list_icons_02_item_text",
+          "label": "Item Text",
+          "name": "item_text",
+          "type": "textarea",
+          "rows": 3,
+          "new_lines": "br"
+        },
+        {
+          "key": "field_list_icons_02_item_link",
+          "label": "Link",
+          "name": "item_link",
+          "type": "link",
+          "return_format": "array",
+          "required": 1
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf\/list-icons-02"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [],
+  "active": true,
+  "description": "",
+  "show_in_rest": 0
+}
