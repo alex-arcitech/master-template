@@ -3,12 +3,17 @@
     "title": "List Row (03)",
     "fields": [
         {
-            "key": "field_list_row_03_show_title",
-            "label": "Show Title",
-            "name": "show_title",
-            "type": "true_false",
-            "ui": 1,
-            "default_value": 1,
+            "key": "field_list_row_03_page_context",
+            "label": "Block Style",
+            "name": "page_context",
+            "type": "button_group",
+            "choices": {
+                "block": "Block",
+                "minimal": "Minimal"
+            },
+            "default_value": "block",
+            "layout": "horizontal",
+            "return_format": "value",
             "wrapper": {
                 "width": "100"
             }
@@ -18,6 +23,15 @@
             "label": "Section Title",
             "name": "section_title",
             "type": "text",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_list_row_03_page_context",
+                        "operator": "==",
+                        "value": "block"
+                    }
+                ]
+            ],
             "required": 0,
             "wrapper": {
                 "width": "100"
@@ -68,7 +82,7 @@
                 },
                 {
                     "key": "field_list_row_03_item_button",
-                    "label": "Button",
+                    "label": "Link",
                     "name": "button",
                     "type": "link",
                     "return_format": "array",

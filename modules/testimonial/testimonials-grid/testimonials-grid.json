@@ -3,17 +3,6 @@
     "title": "Testimonials Grid",
     "fields": [
         {
-            "key": "field_testimonials_grid_show_title",
-            "label": "Show Title",
-            "name": "show_title",
-            "type": "true_false",
-            "ui": 1,
-            "default_value": 1,
-            "wrapper": {
-                "width": "100"
-            }
-        },
-        {
             "key": "field_testimonials_grid_section_title",
             "label": "Section Title",
             "name": "section_title",

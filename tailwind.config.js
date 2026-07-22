@@ -11,7 +11,9 @@ module.exports = {
         'menu-item-has-children',
         'fluentform',
         "ff_columns_total_2",
-        "ff_submit_btn_wrapper"
+        "ff_submit_btn_wrapper",
+        'wp-block-heading',
+        'wp-block-paragraph'
     ],
     theme: {
         extend: {

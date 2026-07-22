@@ -2,6 +2,9 @@
 $option_1_title = (string) get_field('option_1_title');
 $option_2_title = (string) get_field('option_2_title');
 
+$page_context_raw = (string) get_field('page_context');
+$is_seo_page = $page_context_raw === 'minimal';
+
 $rows_raw = get_field('rows');
 $rows_raw = is_array($rows_raw) ? $rows_raw : [];
 
@@ -36,9 +39,10 @@ foreach ($rows_raw as $row) {
 $row_count = count($rows);
 $check_svg = get_stylesheet_directory() . '/assets/svgs/check.svg';
 $cross_svg = get_stylesheet_directory() . '/assets/svgs/cross.svg';
+$section_class = 'section my-12' . ($is_seo_page ? ' seo-section' : '');
 ?>
 
-<section class="section my-12">
+<section class="<?php echo esc_attr($section_class); ?>">
     <div class="container content">
         <div class="overflow-x-auto">
             <table class="w-full border-separate border-spacing-0 rounded-lg overflow-hidden">

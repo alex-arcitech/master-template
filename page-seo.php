@@ -63,11 +63,15 @@ foreach ($cluster_page_ids as $page_id) {
     }
 
     $page_url = (string) get_permalink($page_id);
+    $page_title = (string) get_the_title($page_id);
+    $page_label_raw = get_field('label', $page_id);
+    $page_label = trim((string) $page_label_raw);
+    $nav_label = $page_label !== '' ? $page_label : $page_title;
     $is_current = $current_page_id === $page_id;
 
     $cluster_pages[] = [
         'id' => $page_id,
-        'title' => (string) get_the_title($page_id),
+        'title' => $nav_label,
         'url' => $page_url !== '' ? $page_url : '#',
         'is_current' => $is_current,
         'link_class' => 'seo-page-cluster-nav-link' . ($is_current ? ' is-active font-bold' : ''),
@@ -125,21 +129,6 @@ if ($content_html !== '') {
     $dom->loadHTML('<?xml encoding="utf-8" ?><div id="seo-page-content-root">' . $content_html . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
     $xpath = new DOMXPath($dom);
 
-    $all_heading_nodes = $xpath->query('//*[@id="seo-page-content-root"]//h1 | //*[@id="seo-page-content-root"]//h2 | //*[@id="seo-page-content-root"]//h3 | //*[@id="seo-page-content-root"]//h4 | //*[@id="seo-page-content-root"]//h5 | //*[@id="seo-page-content-root"]//h6');
-    if ($all_heading_nodes instanceof DOMNodeList) {
-        foreach ($all_heading_nodes as $all_heading_node) {
-            if (!($all_heading_node instanceof DOMElement)) {
-                continue;
-            }
-
-            $existing_style = (string) $all_heading_node->getAttribute('style');
-            $style_without_weight = preg_replace('/(?:^|;)\s*font-weight\s*:\s*[^;]+;?/i', ';', $existing_style) ?? '';
-            $style_without_weight = trim((string) preg_replace('/\s*;\s*/', '; ', $style_without_weight), " ;");
-            $normalized_style = $style_without_weight !== '' ? $style_without_weight . '; ' : '';
-            $all_heading_node->setAttribute('style', $normalized_style . 'font-weight: 700 !important;');
-        }
-    }
-
     $heading_nodes = $xpath->query('//*[@id="seo-page-content-root"]//h2');
 
     if ($heading_nodes instanceof DOMNodeList) {
@@ -196,14 +185,10 @@ if ($content_html !== '') {
     libxml_use_internal_errors($previous_use_internal_errors);
 }
 
-add_action('wp_head', static function () {
-    echo '<style>.wp-block-paragraph a, .accordion-block a { font-style: italic; font-weight: 600; }</style>';
-});
-
 get_header();
 ?>
 <main id="site-content" role="main"
-    class="site-main seo-page-template arcitech-content relative mt-[var(--site-header-height)] font-normal [&_.font-thin]:font-normal [&_.font-extralight]:font-normal [&_.font-light]:font-normal [&_.font-\[300\]]:font-normal [&_.container]:mx-0 [&_.container]:px-0 [&_.container]:max-w-none [&_.container.content]:mx-0 [&_.container.content]:px-0 [&_.container.content]:max-w-none [&_.section]:py-0">
+    class="site-main seo-page-template arcitech-content relative mt-[var(--site-header-height)]">
     <div
         class="seo-page-layout grid w-full max-w-[1512px] mx-auto grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)] min-[1150px]:grid-cols-[300px_minmax(0,1fr)_270px] items-start">
 
@@ -261,7 +246,7 @@ get_header();
                 </div>
                 <h1 class="text-theme"><?php echo esc_html($current_page_title_display); ?></h1>
             </div>
-            <div class="p-10">
+            <div class="px-6">
                 <?php echo $content_html; ?>
             </div>
 

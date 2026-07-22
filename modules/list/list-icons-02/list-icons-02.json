@@ -86,8 +86,7 @@
           "label": "Link",
           "name": "item_link",
           "type": "link",
-          "return_format": "array",
-          "required": 1
+          "return_format": "array"
         }
       ]
     }

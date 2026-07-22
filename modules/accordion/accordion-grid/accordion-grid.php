@@ -1,10 +1,15 @@
 <?php
-$show_title = (bool) get_field('show_title');
 $section_title = (string) get_field('section_title');
 $section_text = (string) get_field('section_text');
 
+$page_context_raw = (string) get_field('page_context');
+$is_seo_page = $page_context_raw === 'minimal';
+
 $mode_raw = (string) get_field('mode');
 $mode = in_array($mode_raw, ['dark', 'light'], true) ? $mode_raw : 'dark';
+if ($is_seo_page) {
+    $mode = 'light';
+}
 
 $style_raw = (string) get_field('style');
 $style = in_array($style_raw, ['tile', 'divider'], true) ? $style_raw : 'tile';
@@ -29,6 +34,7 @@ foreach ($faq_items as $index => $item) {
 $arrow_svg = get_stylesheet_directory() . '/assets/svgs/arrow.svg';
 
 $wrapper_class = $mode;
+$section_class = 'section dark:bg-theme dark:text-themelight' . ($is_seo_page ? ' seo-section' : '');
 
 $item_style_class = $style === 'divider'
     ? 'border-b border-solid border-accent2'
@@ -38,10 +44,10 @@ $arrow_style_class = $style === 'divider' ? 'dark:text-white' : 'dark:text-accen
 ?>
 
 <div class="<?php echo esc_attr($wrapper_class); ?>">
-    <section class="section dark:bg-theme dark:text-themelight">
+    <section class="<?php echo esc_attr($section_class); ?>">
         <div class="container">
             <div class="faq-1-accordion flex w-full flex-col gap-6 items-center text-center">
-                <?php if ($show_title): ?>
+                <?php if ($section_title !== '' || $section_text !== ''): ?>
                     <?php if ($section_title !== ''): ?>
                         <h2><?php echo esc_html($section_title); ?></h2>
                     <?php endif; ?>

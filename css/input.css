@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-
   :root {
     --site-header-height: 5rem;
   }
@@ -16,7 +15,6 @@
   main {
     @apply bg-white mt-20;
   }
-
 
   h1,
   h2,
@@ -71,9 +69,33 @@
 }
 
 @layer components {
-
+  h1.wp-block-heading {
+    @apply mb-4 mx-auto px-4 max-w-7xl;
+  }
+  h2.wp-block-heading {
+    @apply mt-10 mb-4 mx-auto px-4 max-w-7xl;
+  }
+  h3.wp-block-heading {
+    @apply mt-8 mb-3 mx-auto px-4 max-w-7xl;
+  }
+  h4.wp-block-heading {
+    @apply mt-6 mb-2 mx-auto px-4 max-w-7xl;
+  }
+  h5.wp-block-heading {
+    @apply mt-5 mb-2 mx-auto px-4 max-w-7xl;
+  }
+  h6.wp-block-heading {
+    @apply mt-4 mb-2 mx-auto px-4 max-w-7xl;
+  }
+  p.wp-block-paragraph {
+    @apply mb-4 mx-auto px-4 max-w-7xl;
+  }
   .section {
     @apply w-full py-32 mx-auto;
+  }
+
+  .section.seo-section{
+    @apply py-6;
   }
 
   .container {
@@ -85,7 +107,6 @@
   }
 }
 
-
 @layer components {
   header {
     @apply bg-theme;
@@ -94,8 +115,7 @@
   nav.desktop {
     @apply text-white;
 
-
-    >ul {
+    > ul {
       @apply h-full flex gap-7;
     }
 
@@ -103,7 +123,7 @@
       @apply invisible pointer-events-none opacity-0 rounded-b-sm h-auto flex flex-col absolute top-[calc(100%-4px)] left-0 bg-white w-48 shadow-sm border-t-4 border-solid border-accent px-4 text-themedark duration-300;
     }
 
-    >ul li {
+    > ul li {
       @apply h-full flex items-center;
     }
 
@@ -123,7 +143,6 @@
       @apply border-b-0;
     }
   }
-
 
   nav.mobile {
     li {
@@ -151,7 +170,6 @@
     .sub-menu li a::before {
       content: unset;
     }
-
   }
 
   .dark {
@@ -184,51 +202,15 @@
     input,
     textarea {
       @apply w-full py-3 px-2 border border-solid border-grey rounded-md mb-2;
-
     }
 
     .ff_submit_btn_wrapper {
       @apply flex justify-center mt-6;
     }
-
-  }
-  .wysiwyg-block__content h1 {
-    @apply mt-0 mb-6 text-4xl leading-tight font-semibold;
-  }
-
-  .wysiwyg-block__content h2 {
-    @apply mt-16 mb-4 text-3xl leading-tight font-semibold;
-  }
-
-  .wysiwyg-block__content h2.seo-page-first-h2 {
-    @apply mt-0;
-  }
-
-  .wysiwyg-block__content h3 {
-    @apply mt-14 mb-3 text-xl leading-snug font-semibold;
-  }
-
-  .wysiwyg-block__content p {
-    @apply mb-5 leading-7;
-  }
-
-  .wysiwyg-block__content ul {
-    @apply mb-5 ml-6 list-disc space-y-2;
-  }
-
-  .wysiwyg-block__content ol {
-    @apply mb-5 ml-6 list-decimal space-y-2;
-  }
-
-  .wysiwyg-block__content blockquote {
-    @apply my-8 border-l-4 pl-4 italic text-zinc-600;
   }
 }
 
-
-
 @layer components {
-
   .btn {
     @apply py-2 font-light w-32 flex justify-center;
   }
@@ -244,6 +226,4 @@
   .third.btn {
     @apply border border-solid border-white bg-white text-themedark hover:opacity-90;
   }
-
-
 }

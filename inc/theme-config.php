@@ -134,3 +134,31 @@ add_action('after_setup_theme', function () {
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
 });
+
+// This removes legacy page metaboxes from the block editor to avoid an empty bottom Meta boxes panel.
+add_action('add_meta_boxes', function ($post_type) {
+    if ($post_type !== 'page') {
+        return;
+    }
+
+    if (function_exists('use_block_editor_for_post_type') && !use_block_editor_for_post_type('page')) {
+        return;
+    }
+
+    $legacy_boxes = [
+        'pageparentdiv',
+        'slugdiv',
+        'authordiv',
+        'commentstatusdiv',
+        'commentsdiv',
+        'trackbacksdiv',
+        'postcustom',
+        'revisionsdiv',
+    ];
+
+    foreach ($legacy_boxes as $box_id) {
+        remove_meta_box($box_id, 'page', 'side');
+        remove_meta_box($box_id, 'page', 'normal');
+        remove_meta_box($box_id, 'page', 'advanced');
+    }
+}, 99);

@@ -33,6 +33,7 @@ foreach ($items_raw as $row) {
         'item_text' => $item_text,
         'item_link_url' => $item_link_url,
         'item_link_target' => $item_link_target,
+        'has_link' => $item_link_url !== '',
     ];
 }
 ?>
@@ -53,16 +54,24 @@ foreach ($items_raw as $row) {
 
             <div class="grid gap-x-6 gap-y-12 md:grid-cols-3">
                 <?php foreach ($items as $item): ?>
-                    <a class="group flex flex-col gap-2" href="<?php echo esc_url($item['item_link_url']); ?>"
-                        target="<?php echo esc_attr($item['item_link_target']); ?>"
-                        rel="<?php echo esc_attr($item['item_link_target'] === '_blank' ? 'noopener noreferrer' : ''); ?>">
-                        <img class="w-12 mb-4 group-hover:-translate-y-2 duration-300" src="<?php echo esc_url($item['icon_url']); ?>"
-                            alt="<?php echo esc_attr($item['icon_alt']); ?>">
-                        <h3 class=" leading-tight"><?php echo esc_html($item['item_heading']); ?></h3>
-                        <p><?php echo wp_kses_post($item['item_text']); ?></p>
-                    </a>
-                <?php endforeach; ?>
+                    <?php if ($item['has_link']): ?>
+                        <a class="group flex flex-col gap-2 hover:-translate-y-2 duration-300" href="<?php echo esc_url($item['item_link_url']); ?>"
+                            target="<?php echo esc_attr($item['item_link_target']); ?>"
+                            rel="<?php echo esc_attr($item['item_link_target'] === '_blank' ? 'noopener noreferrer' : ''); ?>">
+                        <?php else: ?>
+                            <div class="group flex flex-col gap-2 hover:-translate-y-2 duration-300">
+                            <?php endif; ?>
+                            <img class="w-12 mb-4 group-hover:-translate-y-2 duration-300" src="<?php echo esc_url($item['icon_url']); ?>"
+                                alt="<?php echo esc_attr($item['icon_alt']); ?>">
+                            <h3 class=" leading-tight"><?php echo esc_html($item['item_heading']); ?></h3>
+                            <p><?php echo wp_kses_post($item['item_text']); ?></p>
+                            <?php if ($item['has_link']): ?>
+                        </a>
+                    <?php else: ?>
             </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
         </div>
-    </section>
+</div>
+</section>
 </div>

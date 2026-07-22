@@ -56,29 +56,87 @@ if (!function_exists('allowed_blocks')) {
         switch (basename($slug)) {
             case 'front-page.php':
                 return [
-                    'core/heading',
-                    'core/paragraph',
-                    'core/image',
-                    'core/buttons',
-                    'core/spacer',
-                    'acf/accordion'
+                    'acf/accordion',
+                    'acf/accordion-feature',
+                    'acf/accordion-float-right',
+                    'acf/accordion-grid',
+                    'acf/cta-01',
+                    'acf/cta-02',
+                    'acf/cta-03',
+                    'acf/anchor',
+                    'acf/contact-form',
+                    'acf/map',
+                    'acf/content-page-hero',
+                    'acf/front-page-hero',
+                    'acf/list-detailed-image-scroll',
+                    'acf/list-detailed-sticky',
+                    'acf/list-detailed-swiper',
+                    'acf/list-detailed-text-scroll',
+                    'acf/list-icons-01',
+                    'acf/list-icons-02',
+                    'acf/list-numbers',
+                    'acf/list-row-01',
+                    'acf/list-row-02',
+                    'acf/list-row-03',
+                    'acf/comparison-table',
+                    'acf/testimonial-01',
+                    'acf/testimonial-02',
+                    'acf/testimonials-grid',
+                    'acf/testimonials-swiper'
                 ];
             case 'page-contact.php':
                 return [
-                    'core/heading',
-                    'core/paragraph',
-                    'core/shortcode',
-                    'core/html',
-                    'acf/accordion'
+                    'acf/contact-form',
+                    'acf/map',
                 ];
             case 'page-content.php':
+                return [
+                    'acf/accordion-feature',
+                    'acf/accordion-float-right',
+                    'acf/accordion-grid',
+                    'acf/cta-01',
+                    'acf/cta-02',
+                    'acf/cta-03',
+                    'acf/anchor',
+                    'acf/contact-form',
+                    'acf/map',
+                    'acf/content-page-hero',
+                    'acf/front-page-hero',
+                    'acf/list-detailed-image-scroll',
+                    'acf/list-detailed-sticky',
+                    'acf/list-detailed-swiper',
+                    'acf/list-detailed-text-scroll',
+                    'acf/list-icons-01',
+                    'acf/list-icons-02',
+                    'acf/list-numbers',
+                    'acf/list-row-01',
+                    'acf/list-row-02',
+                    'acf/list-row-03',
+                    'acf/comparison-table',
+                    'acf/testimonial-01',
+                    'acf/testimonial-02',
+                    'acf/testimonials-grid',
+                    'acf/testimonials-swiper'
+                ];
+            case 'page-seo.php':
                 return [
                     'core/heading',
                     'core/paragraph',
                     'core/image',
                     'core/list',
                     'core/buttons',
-                    'acf/accordion'
+                    'core/spacer',
+                    'core/shortcode',
+                    'core/html',
+                    'acf/accordion-grid',
+                    'acf/cta-01',
+                    'acf/cta-02',
+                    'acf/cta-03',
+                    'acf/anchor',
+                    'acf/list-icons-01',
+                    'acf/list-row-02',
+                    'acf/list-row-03',
+                    'acf/comparison-table',
                 ];
         }
 
@@ -140,7 +198,9 @@ add_action('acf/init', function () {
             $json_file = $block_dir . '/' . $block_slug . '.json';
             $php_group = $block_dir . '/' . $block_slug . '-fields.php';
             $style_file = $block_dir . '/style.css';
+            $style_file_slug = $block_dir . '/' . $block_slug . '.css';
             $script_file = $block_dir . '/script.js';
+            $script_file_slug = $block_dir . '/' . $block_slug . '.js';
 
             if (!is_file($render_file)) {
                 continue;
@@ -167,6 +227,7 @@ add_action('acf/init', function () {
             }
 
             $title = ucwords(str_replace(['-', '_'], ' ', $block_slug));
+            $title = preg_replace('/\bCta\b/', 'CTA', $title);
 
             $args = [
                 'name' => $block_slug,
@@ -180,11 +241,13 @@ add_action('acf/init', function () {
                 ],
             ];
 
-            if (is_file($style_file)) {
-                $args['enqueue_style'] = $theme_uri . '/modules/' . $type_slug . '/' . $block_slug . '/style.css';
+            if (is_file($style_file) || is_file($style_file_slug)) {
+                $style_name = is_file($style_file) ? 'style.css' : $block_slug . '.css';
+                $args['enqueue_style'] = $theme_uri . '/modules/' . $type_slug . '/' . $block_slug . '/' . $style_name;
             }
-            if (is_file($script_file)) {
-                $args['enqueue_script'] = $theme_uri . '/modules/' . $type_slug . '/' . $block_slug . '/script.js';
+            if (is_file($script_file) || is_file($script_file_slug)) {
+                $script_name = is_file($script_file) ? 'script.js' : $block_slug . '.js';
+                $args['enqueue_script'] = $theme_uri . '/modules/' . $type_slug . '/' . $block_slug . '/' . $script_name;
             }
 
             acf_register_block_type($args);
@@ -205,5 +268,66 @@ add_action('acf/init', function () {
         'redirect' => false,
         'position' => 5,
         'icon_url' => 'dashicons-admin-appearance',
+    ]);
+});
+
+// SEO page metadata fields used by SEO templates.
+add_action('acf/init', function () {
+    if (!function_exists('acf_add_local_field_group')) {
+        return;
+    }
+
+    acf_add_local_field_group([
+        'key' => 'group_seo_page_fields',
+        'title' => 'Cluster Meta',
+        'fields' => [
+            [
+                'key' => 'field_seo_page_cluster',
+                'label' => 'Cluster',
+                'name' => 'cluster',
+                'type' => 'text',
+                'required' => 0
+            ],
+            [
+                'key' => 'field_seo_page_label',
+                'label' => 'Label',
+                'name' => 'label',
+                'type' => 'text',
+                'required' => 0
+            ],
+            [
+                'key' => 'field_seo_page_position_in_cluster',
+                'label' => 'Position',
+                'name' => 'position_in_cluster',
+                'type' => 'number',
+                'required' => 0,
+                'min' => 1,
+                // 'step' => 1
+            ],
+        ],
+        'location' => [
+            [
+                [
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-seo.php',
+                ],
+            ],
+            [
+                [
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'seo-page.php',
+                ],
+            ],
+        ],
+        'position' => 'side',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => [],
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
     ]);
 });

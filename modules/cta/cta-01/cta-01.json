@@ -3,6 +3,19 @@
     "title": "CTA (01)",
     "fields": [
         {
+            "key": "field_cta_central_page_context",
+            "label": "Block Style",
+            "name": "page_context",
+            "type": "button_group",
+            "choices": {
+                "block": "Block",
+                "minimal": "Minimal"
+            },
+            "default_value": "block",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
             "key": "field_cta_central_section_title",
             "label": "Section Title",
             "name": "section_title",

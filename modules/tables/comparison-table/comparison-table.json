@@ -3,6 +3,19 @@
     "title": "Comparison Table",
     "fields": [
         {
+            "key": "field_comparison_table_page_context",
+            "label": "Block Style",
+            "name": "page_context",
+            "type": "button_group",
+            "choices": {
+                "block": "Block",
+                "minimal": "Minimal"
+            },
+            "default_value": "block",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
             "key": "field_comparison_table_option_1_title",
             "label": "Option 1 Title",
             "name": "option_1_title",

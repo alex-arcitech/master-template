@@ -34,6 +34,13 @@
                     "type": "textarea",
                     "rows": 3,
                     "new_lines": "br"
+                },
+                {
+                    "key": "field_list_row_01_item_link",
+                    "label": "Link",
+                    "name": "item_link",
+                    "type": "link",
+                    "return_format": "array"
                 }
             ]
         }

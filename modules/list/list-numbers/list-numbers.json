@@ -75,6 +75,16 @@
           "wrapper": {
             "width": "50"
           }
+        },
+        {
+          "key": "field_list_numbers_item_link",
+          "label": "Link",
+          "name": "item_link",
+          "type": "link",
+          "return_format": "array",
+          "wrapper": {
+            "width": "100"
+          }
         }
       ]
     }
