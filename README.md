@@ -142,7 +142,6 @@ To stage, commit and push changes
 git add .
 git commit -m "Describe change"
 git push
-Conflicts
 ```
 
 If git finds a conflict, resolve it in VS Code, then
