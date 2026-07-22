@@ -9,44 +9,49 @@ class Theme_FAQ
         $blocks = parse_blocks(get_the_content());
 
         foreach ($blocks as $block) {
-
-            if (($block['blockName'] ?? '') !== 'acf/accordion') {
-                continue;
+        
+            $block_name = $block['blockName'] ?? '';
+        
+            if (!in_array($block_name, [
+        'acf/accordion-feature',
+        'acf/accordion-float-right',
+        'acf/accordion-grid',
+            ], true)) {
+        continue;
             }
-
+        
             $data = $block['attrs']['data'] ?? [];
-
-            if (($data['content_purpose'] ?? '') !== 'faq') {
-                continue;
+        
+            // Only include accordions marked as schema
+            if (empty($data['is_schema'])) {
+        continue;
             }
-
-            $count = intval($data['items'] ?? 0);
-
+        
+            // Determine the repeater field name
+            $repeater = match ($block_name) {
+            'acf/accordion-float-right' => 'accordion_items',
+        default => 'faq_items',
+            };
+        
+            $count = (int) ($data[$repeater] ?? 0);
+        
             for ($i = 0; $i < $count; $i++) {
-
-                $question = trim($data["items_{$i}_title"] ?? '');
-                $answer   = trim($data["items_{$i}_text"] ?? '');
-
+            
+                $question = trim($data["{$repeater}_{$i}_title"] ?? '');
+                $answer   = trim($data["{$repeater}_{$i}_text"] ?? '');
+            
                 if (!$question || !$answer) {
-                    continue;
+            continue;
                 }
-
+            
                 $questions[] = [
-
                     "@type" => "Question",
-
                     "name" => wp_strip_all_tags($question),
-
                     "acceptedAnswer" => [
-
-                        "@type" => "Answer",
-
-                        "text" => wp_strip_all_tags($answer)
-
-                    ]
-
+                    "@type" => "Answer",
+                    "text" => wp_strip_all_tags($answer),
+                    ],
                 ];
-
             }
         }
 

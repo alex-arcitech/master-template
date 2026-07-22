@@ -69,6 +69,19 @@
           }
         }
       ]
+    },
+    {
+        "key": "field_float_right_is_schema",
+        "label": "is schema",
+        "name": "is_schema",
+        "type": "true_false",
+        "instructions": "Enable this if the accordion should output FAQ schema.",
+        "required": 0,
+        "message": "The contents of the accordion is used in schema markup",
+        "default_value": 0,
+        "ui": 1,
+        "ui_on_text": "Yes",
+        "ui_off_text": "No"
     }
   ],
   "location": [
