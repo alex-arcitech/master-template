@@ -3,6 +3,8 @@
 require get_template_directory() . '/inc/enqueue.php';
 require get_template_directory() . '/inc/theme-config.php';
 require get_template_directory() . '/inc/acf-config.php';
+require_once get_template_directory() . '/inc/schema/bootstrap.php';
+
 
 // Dequeue/deregister unwanted Fluent Forms public styles
 add_action('wp_enqueue_scripts', function () {

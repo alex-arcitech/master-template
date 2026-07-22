@@ -3,6 +3,22 @@
     "title": "Accordion",
     "fields": [
         {
+            "key": "field_content_purpose",
+            "label": "Content Purpose",
+            "name": "content_purpose",
+            "type": "button_group",
+            "choices": {
+                "general": "General Content",
+                "faq": "Frequently Asked Questions",
+                "timeline": "Timeline",
+                "process": "Process",
+                "specification": "Specifications"
+            },
+            "default_value": "general",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
             "key": "field_accordion_items",
             "label": "Accordion Items",
             "name": "items",

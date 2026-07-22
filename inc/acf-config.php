@@ -61,6 +61,7 @@ if (!function_exists('allowed_blocks')) {
                     'core/image',
                     'core/buttons',
                     'core/spacer',
+                    'acf/accordion'
                 ];
             case 'page-contact.php':
                 return [
@@ -68,6 +69,7 @@ if (!function_exists('allowed_blocks')) {
                     'core/paragraph',
                     'core/shortcode',
                     'core/html',
+                    'acf/accordion'
                 ];
             case 'page-content.php':
                 return [
@@ -76,6 +78,7 @@ if (!function_exists('allowed_blocks')) {
                     'core/image',
                     'core/list',
                     'core/buttons',
+                    'acf/accordion'
                 ];
         }
 

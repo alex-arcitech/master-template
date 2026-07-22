@@ -61,12 +61,22 @@
             }
         },
         {
+            "key": "field_company_name",
+            "label": "Company Name",
+            "name": "Company Name",
+            "type": "text",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
             "key": "field_contact_address",
             "label": "Address",
             "name": "address",
             "type": "textarea",
-            "rows": 2,
+            "rows": 5,
             "new_lines": "br",
+            "placeholder": "Address Line 1\nAddress Line 2\nAddress Line 3\nPost Code\nCountry",
             "wrapper": {
                 "width": "50"
             }
